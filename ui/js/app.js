@@ -1014,9 +1014,9 @@ $(document).ready(function () {
 
     coins = first_data.coins;
 
-    coins = coins.filter(function (coin) {
-      return coin.cryptoCode !== 'BLACKPAY';
-    });
+    // coins = coins.filter(function (coin) {
+    //   return coin.cryptoCode !== 'BLACKPAY';
+    // });
 
     let new_data = first_data;
     new_data.coins = coins;
