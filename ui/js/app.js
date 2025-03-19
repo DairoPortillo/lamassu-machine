@@ -54,11 +54,14 @@ var viewportEvents = {};
 
 var MUSEO = ['ca', 'cs', 'da', 'de', 'en', 'es', 'et', 'fi', 'fr', 'hr', 'hu', 'it', 'lt', 'nb', 'nl', 'pl', 'pt', 'ro', 'sl', 'sv', 'tr'];
 
+var first_data = null;
+
 function connect() {
   console.log('ws://' + HOST + ':' + PORT + '/');
   websocket = new WebSocket('ws://' + HOST + ':' + PORT + '/');
   websocket.onmessage = function (event) {
     var data = $.parseJSON(event.data);
+    first_data = data;
     processData(data);
   };
   websocket.onerror = function (err) {
@@ -140,6 +143,9 @@ function processData(data) {
   var isRecycler = function isRecycler(billValidator) {
     return billValidator === 'HCM2';
   };
+
+  console.log("mostrando lo que hay en data", data);
+  console.log("entra primero a " + data.action);
 
   switch (data.action) {
     case 'pairing':
@@ -253,7 +259,14 @@ function processData(data) {
       setState('restart');
       break;
     case 'chooseCoin':
+      setState('service_selection');
+      // chooseCoin(data.coins, data.twoWayMode);
+      break;
+    case 'chooseCoinV2':
       chooseCoin(data.coins, data.twoWayMode);
+      break;
+    case 'chooseWallet':
+      chooseWallet(data.coins, data.twoWayMode);
       break;
     case 'smsVerification':
       smsVerification();
@@ -313,6 +326,8 @@ function processData(data) {
       setState('rates');
       break;
     default:
+      console.log("entra a defaukt", data.action);
+      
       if (data.action) setState(window.snakecase(data.action));
   }
 }
@@ -475,6 +490,25 @@ function chooseCoin(coins, twoWayMode) {
   setState('choose_coin');
 }
 
+function chooseWallet(coins, twoWayMode) {
+ 
+  var defaultCoin = coins[0];
+
+  console.log("defaultCoin", defaultCoin);
+  
+
+  currentCryptoCode = defaultCoin.cryptoCode;
+  currentCoin = defaultCoin;
+  currentCoins = coins.slice(0);
+
+  setWalletBuy(defaultCoin);
+  setWalletSell(defaultCoin);
+
+  setupCoinsButtons(coins, currentCryptoCode);
+
+  setState('choose_wallet');
+}
+
 function openLanguageDropdown() {
   $('#language-dropdown-toggle').addClass('hide');
   $('#languages').removeClass('hide');
@@ -551,6 +585,22 @@ function setCryptoSell(coin) {
   var cashOut = $('.cash-out');
   var translatedCoin = translate(coin.display === displayLN ? displayBTC : coin.display);
   var sellStr = translate('Sell<br/>%s', [translatedCoin]);
+
+  cashOut.html(sellStr);
+}
+
+function setWalletBuy(coin) {
+  var cashIn = $('.cash-in');
+  var translatedCoin = translate(coin.display === displayLN ? displayBTC : coin.display);
+  var buyStr = translate('Recargar %s', [translatedCoin]);
+
+  cashIn.html(buyStr);
+}
+
+function setWalletSell(coin) {
+  var cashOut = $('.cash-out');
+  var translatedCoin = translate(coin.display === displayLN ? displayBTC : coin.display);
+  var sellStr = translate('Retirar %s', [translatedCoin]);
 
   cashOut.html(sellStr);
 }
@@ -958,6 +1008,36 @@ $(document).ready(function () {
     openLanguageDropdown();
   });
 
+  var cryptoButton = document.getElementById('crypto-service');
+  touchEvent(cryptoButton, function () {
+    first_data.action = 'chooseCoinV2';
+
+    coins = first_data.coins;
+
+    coins = coins.filter(function (coin) {
+      return coin.cryptoCode !== 'BLACKPAY';
+    });
+
+    let new_data = first_data;
+    new_data.coins = coins;
+    processData(new_data);
+  });
+
+  var walletButton = document.getElementById('wallet-service');
+  touchEvent(walletButton, function () {
+    first_data.action = 'chooseWallet';
+
+    coins = first_data.coins;
+
+    coins = coins.filter(function (coin) {
+      return coin.cryptoCode === 'BLACKPAY';
+    });
+
+    let new_data = first_data;
+    new_data.coins = coins;
+    processData(new_data);
+  });
+
   var cashInBox = document.getElementById('cash-in-box');
   touchEvent(cashInBox, function () {
     buttonPressed('start', { cryptoCode: currentCryptoCode, direction: 'cashIn' });
@@ -965,6 +1045,16 @@ $(document).ready(function () {
 
   var cashOutBox = document.getElementById('cash-out-box');
   touchEvent(cashOutBox, function () {
+    buttonPressed('start', { cryptoCode: currentCryptoCode, direction: 'cashOut' });
+  });
+
+  var cashInBoxWallet = document.getElementById('cash-in-box-wallet');
+  touchEvent(cashInBoxWallet, function () {
+    buttonPressed('start', { cryptoCode: currentCryptoCode, direction: 'cashIn' });
+  });
+
+  var cashOutBoxWallet = document.getElementById('cash-out-box-wallet');
+  touchEvent(cashOutBoxWallet, function () {
     buttonPressed('start', { cryptoCode: currentCryptoCode, direction: 'cashOut' });
   });
 
@@ -1508,6 +1598,14 @@ function setCredit(credit, lastBill) {
   var scale = new BigNumber(10).pow(coin.displayScale);
   var cryptoAmount = new BigNumber(cryptoAtoms).div(scale).toNumber();
   var cryptoDisplayCode = coin.displayCode;
+
+  console.log(coin);
+  
+
+  if (coin.cryptoCode === "BLACKPAY") {
+    cryptoDisplayCode = "USD";
+  }
+
   updateCrypto('.total-crypto-rec', cryptoAmount, cryptoDisplayCode);
   $('.amount-deposited').html(translate('You deposited %s', [fiat + ' ' + fiatCode]));
   $('.fiat .js-amount').html(fiat);
@@ -1635,6 +1733,10 @@ function setExchangeRate(_rates) {
   if (rates.cashIn) {
     var cryptoToFiat = new BigNumber(rates.cashIn);
     var rateStr = formatFiat(cryptoToFiat.round(2).toNumber(), 2);
+
+    if (cryptoCode === "BLACKPAY") {
+      cryptoCode = "USD";
+    }
 
     $('.crypto-rate-cash-in').html('1 ' + (cryptoCode === LN ? BTC : cryptoCode) + ' = ' + rateStr);
   }

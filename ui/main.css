@@ -321,7 +321,7 @@ h5, .h5 {
   font-weight: 700;
   font-size: 5vh;
   line-height: 1.2;
-  color: #403c51;
+  color: #fff;
 }
 .museo .cash-out-color .tl1 {
   font-family: "MuseoSans", "Rubik", "Noto Sans CJK CS", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Hebrew", "Noto Kufi Arabic";
@@ -363,7 +363,7 @@ h5, .h5 {
   font-weight: 700;
   font-size: 3vh;
   line-height: 0.8;
-  color: #403c51;
+  color: #fff;
 }
 .museo .cash-out-color .tl2 {
   font-family: "MuseoSans", "Rubik", "Noto Sans CJK CS", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Hebrew", "Noto Kufi Arabic";
@@ -405,7 +405,7 @@ h5, .h5 {
   font-weight: 500;
   font-size: 4vh;
   line-height: 1.25;
-  color: #403c51;
+  color: #fff;
 }
 .museo .cash-out-color .d1 {
   font-family: "MuseoSans", "Rubik", "Noto Sans CJK CS", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Hebrew", "Noto Kufi Arabic";
@@ -447,7 +447,7 @@ h5, .h5 {
   font-weight: 500;
   font-size: 3vh;
   line-height: 1.33;
-  color: #403c51;
+  color: #fff;
 }
 .museo .cash-out-color .d2 {
   font-family: "MuseoSans", "Rubik", "Noto Sans CJK CS", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Hebrew", "Noto Kufi Arabic";
@@ -489,7 +489,7 @@ h5, .h5 {
   font-weight: 700;
   font-size: 3vh;
   line-height: 0.8;
-  color: #403c51;
+  color: #fff;
 }
 .museo .cash-out-color .d2b {
   font-family: "MuseoSans", "Rubik", "Noto Sans CJK CS", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Hebrew", "Noto Kufi Arabic";
@@ -526,7 +526,7 @@ h5, .h5 {
   font-family: BPmono;
   font-size: 4vh;
   line-height: 1;
-  color: #403c51;
+  color: #fff;
 }
 @media (max-height: 600px) {
   .cash-out-color .m1 {
@@ -543,7 +543,7 @@ h5, .h5 {
   font-family: BPmono;
   font-size: 3vh;
   line-height: 1;
-  color: #0e4160;
+  color: #fff;
 }
 @media (max-height: 600px) {
   .cash-in-color .m2, .system-color .m2 {
@@ -560,7 +560,7 @@ h5, .h5 {
   font-family: BPmono;
   font-size: 3vh;
   line-height: 1;
-  color: #403c51;
+  color: #fff;
 }
 @media (max-height: 600px) {
   .cash-out-color .m2 {
@@ -582,11 +582,11 @@ button {
 }
 
 .cash-in-color #actions-scroll .round-progress-button:active svg path, .cash-in-color #actions-scroll .round-progress-button .active svg path {
-  fill: #0e4160;
+  fill: #fff;
 }
 
 .cash-out-color #actions-scroll .round-progress-button:active svg path, .cash-out-color #actions-scroll .round-progress-button .active svg path {
-  fill: #403c51;
+  fill: #fff;
 }
 
 .round-progress-button {
@@ -633,7 +633,7 @@ button {
   background-color: #0e4160;
 }
 .cash-out-color .round-progress-button {
-  background-color: #403c51;
+  background-color: #fff;
 }
 .round-progress-button:active, .round-progress-button .active {
   background-color: #ffffff;
@@ -645,10 +645,10 @@ button {
   color: #403c51;
 }
 .cash-in-color .round-progress-button:disabled, .system-color .round-progress-button:disabled {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 .cash-out-color .round-progress-button:disabled {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 
 .progress-button {
@@ -708,16 +708,16 @@ button {
   background-color: #403c51;
 }
 .cash-in-color .progress-button:disabled, .system-color .progress-button:disabled {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 .cash-out-color .progress-button:disabled {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 .cash-in-color .progress-button:disabled, .system-color .progress-button:disabled {
-  color: #37e8d7;
+  color: #000000;
 }
 .cash-out-color .progress-button:disabled {
-  color: #fe7f78;
+  color: #000000;
 }
 
 .filled-progress-button {
@@ -777,19 +777,19 @@ button {
   color: #403c51;
 }
 .cash-in-color .filled-progress-button:disabled, .system-color .filled-progress-button:disabled {
-  background-color: #2cb9ac;
+  background-color: #fff;
 }
 .cash-out-color .filled-progress-button:disabled {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 
 .cash-in-color .filled-progress-button:disabled {
-  color: #37e8d7;
+  color: #000000;
   pointer-events: none;
 }
 
 .cash-out-color .filled-progress-button:disabled {
-  color: #fe7f78;
+  color: #000000;
   pointer-events: none;
 }
 
@@ -845,10 +845,10 @@ button {
   background-color: #ffffff;
 }
 .cash-in-color .filled-progress-button-bg:active, .system-color .filled-progress-button-bg:active, .cash-in-color .filled-progress-button-bg .active, .system-color .filled-progress-button-bg .active {
-  color: #0e4160;
+  color: #fff;
 }
 .cash-out-color .filled-progress-button-bg:active, .cash-out-color .filled-progress-button-bg .active {
-  color: #403c51;
+  color: #fff;
 }
 
 .bordered-progress-button {
@@ -899,10 +899,10 @@ button {
   border: 3px solid #403c51;
 }
 .cash-in-color .bordered-progress-button, .system-color .bordered-progress-button {
-  color: #0e4160;
+  color: #fff;
 }
 .cash-out-color .bordered-progress-button {
-  color: #403c51;
+  color: #fff;
 }
 .bordered-progress-button:active, .bordered-progress-button .active {
   border-color: transparent;
@@ -994,23 +994,23 @@ button {
 }
 
 .cash-out-color .circle-button:disabled .inner-circle-button {
-  background-color: #cb6560;
-  color: #fe7f78;
+  background-color: #000000;
+  color: #000000;
 }
 
 .cash-out-color .circle-button:disabled {
-  background-color: #cb6560;
-  color: #fe7f78;
+  background-color: #000000;
+  color: #000000;
 }
 
 .cash-in-color .circle-button:disabled .inner-circle-button {
-  background-color: #2cb9ac;
-  color: #37e8d7;
+  background-color: #000000;
+  color: #000000;
 }
 
 .cash-in-color .circle-button:disabled {
-  background-color: #2cb9ac;
-  color: #37e8d7;
+  background-color: #000000;
+  color: #000000;
 }
 
 .action-button {
@@ -1045,8 +1045,8 @@ button {
 }
 
 .cash-out-color .action-button:disabled {
-  background-color: #cb6560;
-  color: #fe7f78;
+  background-color: #000000;
+  color: #000000;
 }
 
 .filled-action-button {
@@ -1117,12 +1117,12 @@ button {
 
 .cash-in-color .key.active,
 .cash-in-color .key:active {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 
 .cash-out-color .key.active,
 .cash-out-color .key:active {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 
 button div {
@@ -1425,7 +1425,7 @@ footer {
 }
 
 .cash-in-color {
-  background-color: #37e8d7;
+  background-color: #000000;
 }
 
 .system-color {
@@ -1437,7 +1437,7 @@ footer {
 }
 
 .cash-out-color {
-  background-color: #fe7f78;
+  background-color: #000000;
 }
 
 .system-color {
@@ -1625,7 +1625,7 @@ footer {
 }
 
 .cash-in-color .contacts {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 .cash-in-color .contacts .d2 {
   color: #ffffff;
@@ -1635,7 +1635,7 @@ footer {
 }
 
 .cash-out-color .contacts {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 .cash-out-color .contacts .d2 {
   color: #ffffff;
@@ -2064,12 +2064,12 @@ footer {
 }
 
 .cash-in-color .phone-separator {
-  border-bottom: 1px solid #2cb9ac;
+  border-bottom: 1px solid #000000;
   width: 34vh;
 }
 
 .cash-out-color .phone-separator {
-  border-top: 1px solid #cb6560;
+  border-top: 1px solid #000000;
   width: 34vh;
 }
 
@@ -2548,11 +2548,11 @@ footer {
 }
 
 .cash-in-color .round-progress-button:disabled .up-arrow-svg, .cash-in-color .round-progress-button:disabled .down-arrow-svg {
-  fill: #37e8d7;
+  fill: #000000;
 }
 
 .cash-out-color .round-progress-button:disabled .up-arrow-svg, .cash-out-color .round-progress-button:disabled .down-arrow-svg {
-  fill: #fe7f78;
+  fill: #000000;
 }
 
 .or {
@@ -2771,29 +2771,29 @@ footer {
 }
 
 .cash-in-color .promo-code-input {
-  border-bottom: #34d9c8 2px solid;
+  border-bottom: #000000 2px solid;
 }
 .cash-in-color .text-requirement-input {
-  border-bottom: #34d9c8 2px solid;
+  border-bottom: #000000 2px solid;
 }
 .cash-in-color .standard-keyboard .key {
-  background-color: #34d9c8;
+  background-color: #000000;
 }
 .cash-in-color .standard-keyboard .key:active {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 
 .cash-out-color .promo-code-input {
-  border-bottom: #e6746d 2px solid;
+  border-bottom: #000000 2px solid;
 }
 .cash-out-color .text-requirement-input {
-  border-bottom: #e6746d 2px solid;
+  border-bottom: #000000 2px solid;
 }
 .cash-out-color .standard-keyboard .key {
-  background-color: #e6746d;
+  background-color: #000000;
 }
 .cash-out-color .standard-keyboard .key:active {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 
 .standard-keyboard {
@@ -3264,11 +3264,11 @@ footer {
 }
 
 .cash-in-color .choice-list-item {
-  background-color: #34d9c8;
+  background-color: #000000;
 }
 
 .cash-out-color .choice-list-item {
-  background-color: #e6746d;
+  background-color: #000000;
 }
 
 .choice-list-actions-wrapper {
@@ -3312,10 +3312,10 @@ footer {
   font-family: "MuseoSans", sans-serif;
 }
 .cash-in-color .choice-list-arrow:disabled, .system-color .choice-list-arrow:disabled {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 .cash-out-color .choice-list-arrow:disabled {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 
 .choice-list-pager {
@@ -3357,19 +3357,19 @@ footer {
   color: #403c51;
 }
 .cash-in-color .choice-selected:disabled, .system-color .choice-selected:disabled {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 .cash-out-color .choice-selected:disabled {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 .choice-selected .choice-list-radio {
   border-color: transparent;
 }
 .cash-in-color .choice-selected .choice-list-radio, .system-color .choice-selected .choice-list-radio {
-  background-color: #2cb9ac;
+  background-color: #000000;
 }
 .cash-out-color .choice-selected .choice-list-radio {
-  background-color: #cb6560;
+  background-color: #000000;
 }
 
 .choice-list-radio {

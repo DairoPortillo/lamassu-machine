@@ -2221,6 +2221,43 @@
       </main>
     </section>
     <section
+      class="viewport scan_address_wallet_state cash-in-color"
+      data-tr-section="scan-address"
+      data-screentype="flow-no-action-tp"
+    >
+      <header>
+        <p class="d2 white crypto-rate crypto-rate-cash-in fade-in"></p>
+        <div id="scanCancel" class="fade-in-delay cancel-button-wrapper">
+          <img class="cancel-button" src="images/close-icon.svg" />
+        </div>
+      </header>
+    
+      <main class="xl-margin-top">
+        <section class="primary-side fade-in">
+          <h2 class="primary-side-title xs-margin-bottom">
+            Escanea tu correo electrónico
+          </h2>
+          <p class="d1 no-margin-top js-i18n no-coincloud">
+            Escanea tu billetera usando la APP
+          </p>
+          <p class="d1 display-none no-margin-top js-i18n only-coincloud">
+            Hold your QR code up to the camera above the screen to proceed.
+          </p>
+        </section>
+        <section class="secondary-side fade-in-delay">
+          <object class="scan-image only-sintra" data="images/scan/animation/sintra/BTC-amazonite.svg"></object>
+          <object class="scan-image only-douro" data="images/scan/animation/douro/BTC-amazonite.svg"></object>
+          <object class="scan-image only-gaia" data="images/scan/animation/gaia/BTC-amazonite.svg"></object>
+          <object class="scan-image only-tejo" data="images/scan/animation/tejo/BTC-amazonite.svg"></object>
+          <object class="scan-image only-aveiro" data="images/scan/animation/aveiro/BTC-amazonite.svg"></object>
+          <object class="scan-image only-grandola" data="images/scan/animation/grandola/BTC-amazonite.svg"></object>
+          <object class="scan-image only-gmuk1" data="images/scan/animation/gmuk1/BTC-amazonite.svg"></object>
+          <object class="scan-image only-coincloud" data="images/scan/animation/coincloud/BTC-amazonite.svg"></object>
+          <object class="scan-image only-batm7in" data="images/scan/animation/batm7in/BTC-amazonite.svg"></object>
+        </section>
+      </main>
+    </section>
+    <section
       class="viewport scan_id_data_state"
       data-tr-section="scan-id"
       data-screentype="flow-no-action-tp"
@@ -3509,6 +3546,63 @@
       <footer class="receipt-footer">
         <span class="d2 js-i18n">Tap anywhere on the screen when you're done.</span>
       </footer>
+    </section>
+
+    <!-- Added service selection section -->
+    <section
+      class="viewport service_selection_state info-with-contact cash-out-color"
+      data-tr-section="service-selection"
+      data-screentype="unaccounted-tp info-contact-tp"
+    >
+      <header>
+        <h3 class="js-i18n">Seleccione servicio</h3>
+      </header>
+      <main>
+        <div class="button-group vertical flex-center-verical">
+          <button class="filled-progress-button button" id="crypto-service" style="margin-bottom: 10px;">
+            <div class="js-i18n">Crypto</div>
+          </button>
+          <button class="filled-progress-button button" id="wallet-service" style="margin-top: 10px;">
+            <div class="js-i18n">Billeteras</div>
+          </button>
+        </div>
+      </main>
+    </section>
+
+    <section
+      class="viewport choose_wallet_state info-with-contact cash-out-color"
+      data-tr-section="choose_wallet"
+      data-screentype="unaccounted-tp info-contact-tp"
+    >
+    <header id="choose-coin-header">
+      <div class="flex-right">
+        <h3>Selecciona tu wallet</h3>
+      </div>
+    </header>
+
+      <main class="nm-margin-bottom">
+        <section id="cash-in-box-wallet">
+          <div class="cash-in-box-wrapper cash-in-color auto-margin">
+              <div class="filled-progress-button button" id="cash-in-box">
+                <div class="crypto-button-ball"></div>
+                <div class="cash-in crypto-button"></div>
+              </div>
+          </div>
+        </section>
+        <section id="cash-out-box-wallet">
+          <div class="cash-out-box-wrapper cash-out-color auto-margin" style="margin-top: 10px;">
+              <div class="filled-progress-button button" >
+                <div class="crypto-button-ball"></div>
+                <div class="cash-out crypto-button"></div>
+              </div>
+          </div>
+        </section>
+      </main>
+    
+      <!-- Globals -->
+      <div id="language-overlay" class="hide button"></div>
+      <div id="crypto-overlay" class="hide button"></div>
+      <div id="bg-to-show" class="bg-image"><img class="bg-image" src="" /></div>
     </section>
     
     </section>
