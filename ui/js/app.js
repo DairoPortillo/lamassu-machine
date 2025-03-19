@@ -259,8 +259,8 @@ function processData(data) {
       setState('restart');
       break;
     case 'chooseCoin':
-      //setState('service_selection');
-      chooseCoin(data.coins, data.twoWayMode);
+      setState('service_selection');
+      // chooseCoin(data.coins, data.twoWayMode);
       break;
     case 'chooseCoinV2':
       chooseCoin(data.coins, data.twoWayMode);
@@ -493,9 +493,6 @@ function chooseCoin(coins, twoWayMode) {
 function chooseWallet(coins, twoWayMode) {
  
   var defaultCoin = coins[0];
-
-  console.log("defaultCoin", defaultCoin);
-  
 
   currentCryptoCode = defaultCoin.cryptoCode;
   currentCoin = defaultCoin;
@@ -1014,9 +1011,9 @@ $(document).ready(function () {
 
     coins = first_data.coins;
 
-    // coins = coins.filter(function (coin) {
-    //   return coin.cryptoCode !== 'BLACKPAY';
-    // });
+    coins = coins.filter(function (coin) {
+      return coin.cryptoCode !== 'BLACKPAY';
+    });
 
     let new_data = first_data;
     new_data.coins = coins;
