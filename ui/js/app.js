@@ -259,8 +259,8 @@ function processData(data) {
       setState('restart');
       break;
     case 'chooseCoin':
-      setState('service_selection');
-      // chooseCoin(data.coins, data.twoWayMode);
+      //setState('service_selection');
+      chooseCoin(data.coins, data.twoWayMode);
       break;
     case 'chooseCoinV2':
       chooseCoin(data.coins, data.twoWayMode);
